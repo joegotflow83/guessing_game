@@ -17,7 +17,12 @@ defmodule GameGuess do
     String.to_integer guess
   end
 
-  def game_round(n, number) when n > 0 do
+  def game_round 0, number do
+    # The game is over and the user did not guess the number
+    IO.puts "You did not guess my number, it was #{number}"
+  end
+
+  def game_round n, number do
     guess = user_guess
     guess = str_to_int guess
     IO.puts number
